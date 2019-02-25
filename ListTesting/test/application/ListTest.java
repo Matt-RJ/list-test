@@ -233,8 +233,111 @@ public class ListTest {
 	// Contains
 	
 	@Test
-	public void containsFindsElementInArrayList() {
-		// TODO
+	public void containsFindsFirstElementInArrayList() {
+		assertTrue(testArrayList.contains("Element 1"));
+	}
+	@Test
+	public void containsFindsMiddleElementInArrayList() {
+		assertTrue(testArrayList.contains("Element 4"));
+	}
+	@Test
+	public void containsFindsLastElementInArrayList() {
+		assertTrue(testArrayList.contains("Element 6"));
+	}
+	@Test
+	public void containsDoesntFindFakeElementInArrayList() {
+		assertFalse(testArrayList.contains("Element 100"));
+	}
+	@Test
+	public void containsFindsFirstElementInLinkedList() {
+		assertTrue(testLinkedList.contains("Element 1"));
+	}
+	@Test
+	public void containsFindsMiddleElementInLinkedList() {
+		assertTrue(testLinkedList.contains("Element 4"));
+	}
+	@Test
+	public void containsFindsLastElementInLinkedList() {
+		assertTrue(testLinkedList.contains("Element 6"));
+	}
+	@Test
+	public void containsDoesntFindFakeElementInLinkedList() {
+		assertFalse(testLinkedList.contains("Element 100"));
+	}
+	
+	// isEmpty
+	
+	@Test
+	public void isEmptyReturnsTrueWithEmptyArrayList() {
+		assertTrue(new ArrayList<String>().isEmpty());
+	}
+	@Test
+	public void isEmptyReturnsFalseWithFilledArrayList() {
+		assertFalse(testArrayList.isEmpty());
+	}
+	@Test
+	public void isEmptyReturnsTrueWithEmptyLinkedList() {
+		assertTrue(new LinkedList<String>().isEmpty());
+	}
+	@Test
+	public void isEmptyReturnsFalseWithFilledLinkedList() {
+		assertFalse(testLinkedList.isEmpty());
+	}
+	
+	// Size
+	
+	@Test
+	public void sizeReturnsZeroForEmptyArrayList() {
+		assertEquals(0, new ArrayList<String>().size());
+	}
+	@Test
+	public void sizeReturnsOneForArrayListWithOneElement() {
+		ArrayList<String> sizeOneArrayList = new ArrayList<>();
+		sizeOneArrayList.add("Element 1");
+		assertEquals(1, sizeOneArrayList.size());
+	}
+	@Test
+	public void sizeReturnsSixForArrayListWithSixElements() {
+		assertEquals(6, testArrayList.size());
+	}
+	@Test
+	public void sizeReturnsZeroForEmptyLinkedList() {
+		assertEquals(0, new LinkedList<String>().size());
+	}
+	@Test
+	public void sizeReturnsOneForLinkedListWithOneElement() {
+		LinkedList<String> sizeOneLinkedList = new LinkedList<>();
+		sizeOneLinkedList.add("Element 1");
+		assertEquals(1, sizeOneLinkedList.size());
+	}
+	@Test
+	public void sizeReturnsSizeForLinkedListWithSixElements() {
+		assertEquals(6, testLinkedList.size());
+	}
+	
+	// Clear
+	
+	@Test
+	public void clearEmptiesFilledArrayList() {
+		testArrayList.clear();
+		assertTrue(testArrayList.isEmpty());
+	}
+	@Test
+	public void clearLeavesEmptyArrayListAsEmpty() {
+		ArrayList<String> emptyArrayList = new ArrayList<>();
+		emptyArrayList.clear();
+		assertTrue(emptyArrayList.isEmpty());
+	}
+	@Test
+	public void clearEmptiesFilledLinkedList() {
+		testLinkedList.clear();
+		assertTrue(testLinkedList.isEmpty());
+	}
+	@Test
+	public void clearLeavesEmptyLinkedListAsEmpty() {
+		LinkedList<String> emptyLinkedList = new LinkedList<>();
+		emptyLinkedList.clear();
+		assertTrue(emptyLinkedList.isEmpty());
 	}
 	
 }
